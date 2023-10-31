@@ -74,7 +74,7 @@ class Ramps
 		void fan(bool On);
 
 		//Beweeg naar gegeven positie met bresenhams lijn algoritme
-		void moveTo(long targetX, long targetY, long targetZ, long targetE, int _delay);
+		void moveTo(long targetX, long targetY, long targetZ, int _delay);
 
 		//declareren van motors
 		PololuStepper motorX = PololuStepper(	X_STEP_PIN, X_DIR_PIN,
