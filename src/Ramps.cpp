@@ -86,7 +86,7 @@ void Ramps::home(int _delay)
 {
 	bool allhome = false;
 
-	//stepOff van motoren
+	//stepOff van n
 	motorX.stepOff();
 	motorY.stepOff();
 	motorZ.stepOff();
@@ -136,14 +136,14 @@ void Ramps::home(int _delay)
 
 }
 
-void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _delay = 500)
+void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
 {
 
-    //stepOff van motoren
+    //stepOff van n
 	motorX.stepOff();
 	motorY.stepOff();
 	motorZ.stepOff();
-  motorE.stepOff();
+	motorE.stepOff();
 
     long deltaX = targetX - motorX.position;
     long deltaY = targetY - motorY.position;
@@ -176,13 +176,13 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _
     if (deltaZ < 0)
     {
         motorZ.setDir(-1);
-        motorE.setDir(-1);
+        .setDir(-1);
         deltaZ *= -1;
     }
     else
     {
         motorZ.setDir(1);
-        motorE.setDir(1);
+        .setDir(1);
     }
 
     //als deltaX de grootste is gebruiken vergelijken we steeds met de X as
@@ -208,17 +208,17 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _
             {
                 //motor Z stapt
                 motorZ.stepOn();
-                motorE.stepOn();
+                .stepOn();
                 errorZ -= 2*deltaX;
             }
 
             delayMicroseconds(_delay); //Wacht het aantal microseconden
 
-            //stepOff van de motoren
+            //stepOff van de n
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            motorE.stepOff();
+            .stepOff();
         }
     }
     else if(deltaZ >= deltaX && deltaZ >= deltaY)
@@ -227,7 +227,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _
         {
             //MotorZ zal altijd stappen
             motorZ.stepOn();
-            motorE.stepOn();
+            .stepOn();
 
             errorX += 2*deltaX;
             errorY += 2*deltaY;
@@ -248,11 +248,11 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _
 
             delayMicroseconds(_delay); //Wacht het aantal microseconden
 
-            //stepOff van de motoren
+            //stepOff van de n
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            motorE.stepOff();
+            .stepOff();
         }
     }
     else if(deltaY >= deltaX && deltaY >= deltaZ)
@@ -276,17 +276,17 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, long targetE, int _
             {
                 //motor Z stapt
                 motorZ.stepOn();
-                motorE.stepOn();
+                .stepOn();
                 errorZ -= 2*deltaY;
             }
 
             delayMicroseconds(_delay); //Wacht het aantal microseconden
 
-            //stepOff van de motoren
+            //stepOff van de n
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            motorE.stepOff();
+            .stepOff();
         }
     }
 }
