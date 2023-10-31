@@ -176,13 +176,13 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
     if (deltaZ < 0)
     {
         motorZ.setDir(-1);
-        .setDir(-1);
+        motorE.setDir(-1);
         deltaZ *= -1;
     }
     else
     {
         motorZ.setDir(1);
-        .setDir(1);
+        motorE.setDir(1);
     }
 
     //als deltaX de grootste is gebruiken vergelijken we steeds met de X as
@@ -208,7 +208,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
             {
                 //motor Z stapt
                 motorZ.stepOn();
-                .stepOn();
+                motorE.stepOn();
                 errorZ -= 2*deltaX;
             }
 
@@ -218,7 +218,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            .stepOff();
+            motorE.stepOff();
         }
     }
     else if(deltaZ >= deltaX && deltaZ >= deltaY)
@@ -227,7 +227,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
         {
             //MotorZ zal altijd stappen
             motorZ.stepOn();
-            .stepOn();
+            motorE.stepOn();
 
             errorX += 2*deltaX;
             errorY += 2*deltaY;
@@ -252,7 +252,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            .stepOff();
+            motorE.stepOff();
         }
     }
     else if(deltaY >= deltaX && deltaY >= deltaZ)
@@ -276,7 +276,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
             {
                 //motor Z stapt
                 motorZ.stepOn();
-                .stepOn();
+                motorE.stepOn();
                 errorZ -= 2*deltaY;
             }
 
@@ -286,7 +286,7 @@ void Ramps::moveTo(long targetX, long targetY, long targetZ, int _delay = 500)
             motorX.stepOff();
             motorY.stepOff();
             motorZ.stepOff();
-            .stepOff();
+            motorE.stepOff();
         }
     }
 }
